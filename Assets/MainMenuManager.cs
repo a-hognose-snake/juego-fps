@@ -27,18 +27,6 @@ public class MainMenuManager : MonoBehaviour
         Debug.Log("Cierra la ventana de juego.");
     }
 
-    IEnumerator LoadSceneAsync(string sceneName)
-    {
-        // Crea un objeto de tipo AsyncOperation para manejar la carga de la escena
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-
-        // Mientras la escena no este cargada
-        while (!asyncLoad.isDone)
-        {
-            // Espera un frame
-            yield return null;
-        }
-    }
     // Metodo para llamar la corutina de carga de escena (async)
     public void CallExampleCoroutine()
     {

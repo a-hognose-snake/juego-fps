@@ -7,9 +7,28 @@ public class Player1 : MonoBehaviour
     // Variable de velocidad
     public float speed = 0.01f;
 
+    public float Force = 5f;
+
+    public bool isJumping = false;
+
+    public int points = 0;
+
+    // Variable que hace referencia al audio source
+    private AudioSource audioSource;
+
+    private Rigidbody rb;
+
+    // Variable para almacenar sonido de salto
+    public AudioClip jumpSound;
+
+    // Variable para almacenar sonido de moneda
+    public AudioClip moneySound;
+
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         
     }
 
@@ -44,9 +63,14 @@ public class Player1 : MonoBehaviour
 
     public void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
         {
-            transform.Translate(0, 0.5f, 0);
+            transform.Translate(0, Force, 0);
+            isJumping = true;
+
+            // Reproducir sonido de salto
+            audioSource.clip = jumpSound;
+            audioSource.Play();
         }
     }
 
@@ -54,6 +78,15 @@ public class Player1 : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision with object: " + collision.gameObject.name);
+
+        audioSource.clip = moneySound;
+        audioSource.Play();
+        points ++;
+        if (collision.gameObject.name != "Plane")
+        {
+            Destroy(collision.gameObject);
+        }
+        
     }
     
     // Method detects collision exit
