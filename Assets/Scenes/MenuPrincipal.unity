@@ -343,7 +343,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1753875988}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: CallExampleCoroutine
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1753875987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1109c5a42dcd24cba8209de4c6dc3618, type: 3}
+  m_Script: {fileID: 11500000, guid: b7df692a0e4474288bf2de62920a4dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1753875989
